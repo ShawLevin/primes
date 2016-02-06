@@ -130,13 +130,15 @@ namespace PrimeTests
                 return true;
             }
 
-            //Binary & with 0 checks if the last digit is also 0 - meaning number is even and thus not prime.
+            //Binary & with 1 checks if the last digit is also 0 - meaning number is even and thus not prime.
             if ((x & 1) == 0) 
             {
                 return false;
             }
 
-            for (int i = 3; i < x/i+1; i+=2)
+            //Going up by 2 since we checked all the even numbers before.
+            //We only have to go to x/i because once we reach that point there can't be a matching factor
+            for (int i = 3; i <= x/i; i+=2)
             {
                 if (x % i == 0)
                 {
